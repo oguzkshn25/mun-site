@@ -170,6 +170,57 @@ nav a {
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
+
+
+
+
+
+
+
+/* BALONCUK */
+.card::after {
+  content: attr(data-info);
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 10px);
+  background: #111;
+  color: white;
+  padding: 14px 16px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 260px;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  text-align: center;
+  z-index: 10;
+}
+
+/* Hover */
+.card:hover::after {
+  opacity: 1;
+  transform: translate(-50%, 20px);
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .card::after {
+    width: 85%;
+    font-size: 0.85rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
 /* TOOLTIP */
 .tooltip {
   position: absolute;
@@ -355,4 +406,40 @@ footer {
   font-weight: 600;
   color: var(--navy);
   min-width: 130px;
+}
+
+
+/* MOBILE NAVBAR */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 15px 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(11, 28, 61, 0.98);
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    display: none;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
 }
