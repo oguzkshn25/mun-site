@@ -17,7 +17,10 @@ body {
   scroll-behavior: smooth;
 }
 
-/* NAV */
+
+
+
+/* NAVBAR */
 nav {
   position: fixed;
   top: 0;
@@ -30,30 +33,78 @@ nav {
   z-index: 1000;
 }
 
-nav .logo {
+.logo {
   color: white;
   font-weight: 700;
   letter-spacing: 1px;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+/* HAMBURGER */
+.menu-toggle {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
 }
+
+/* MENU */
+
+/*menu slide*/
+
+nav ul {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: rgba(11, 28, 61, 0.98);
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 0;
+
+  max-height: 0;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(-10px);
+
+  transition:
+    max-height 0.45s ease,
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+/* MENU OPEN */
+nav ul.active {
+  max-height: 500px; /* yeterince büyük */
+  padding: 25px 0;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
 
 nav a {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  font-size: 1.05rem;
 }
 
 .nav-btn {
   background: var(--gold);
-  padding: 8px 20px;
+  padding: 10px 22px;
   border-radius: 999px;
   color: #000;
 }
+
+
+
+
 
 /* HERO */
 .hero {
@@ -442,4 +493,14 @@ footer {
   nav ul.active {
     display: flex;
   }
+}
+
+
+/* HAMBURGER BUTTON */
+.menu-toggle {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  display: block;
+  z-index: 2000;
 }
